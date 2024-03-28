@@ -1,0 +1,18 @@
+<div>
+  <h3>Basket</h3>
+  <ul *ngFor="let basketItem of basketItems">
+    <span>{{ basketItem.basketItemName }}: </span>
+    <span >{{ basketItem.price | currency : selectedOption : "symbol" }}</span>
+  </ul>
+  <h3>Total {{ basketTotalAmount | currency : selectedOption : "symbol" }}</h3>
+
+  <div>
+    <h2>Currency Converter</h2>
+    <label for="tickerSelect">Convert to </label>
+    <select (change)="onSelectFromChange($event)">
+      <option *ngFor="let option of options" [value]="option">
+        {{ option }}
+      </option>
+    </select>
+  </div>
+</div>
